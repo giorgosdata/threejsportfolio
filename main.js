@@ -6,54 +6,16 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
 menuBtn?.addEventListener("click", () => mobileNav.classList.toggle("open"));
-mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
+mobileNav?.querySelectorAll("a").forEach(a =>
+  a.addEventListener("click", () => mobileNav.classList.remove("open"))
+);
 
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("on"); });
-}, { threshold: 0.12 });
+// Reveal on scroll
+const io = new IntersectionObserver(
+  (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("on")),
+  { threshold: 0.12 }
+);
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-/* ---------- Modal ---------- */
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalBody = document.getElementById("modalBody");
-const modalBtn = document.getElementById("modalBtn");
-
-const modalData = {
-  tunnel: {
-    title: "3D Tunnel Landing",
-    body:
-      "Cinematic tunnel με fog + particles. Το scroll οδηγεί την κάμερα για ‘travel’ feeling. Ιδανικό για hero sections και product reveals.",
-    link: "#"
-  },
-  saas: {
-    title: "Premium SaaS Landing",
-    body:
-      "Conversion-first layout με glass UI, gradients, και scroll reveals. Έτοιμο για lead-gen / προϊόν / agency.",
-    link: "#"
-  },
-  showcase: {
-    title: "3D Showcase Concept",
-    body:
-      "Παρουσίαση προϊόντος/idea με smooth motion και καθαρό UI. Μπορεί να γίνει product page ή interactive demo.",
-    link: "#"
-  }
-};
-
-document.querySelectorAll("[data-modal]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const key = btn.getAttribute("data-modal");
-    const d = modalData[key];
-    modalTitle.textContent = d.title;
-    modalBody.textContent = d.body;
-    modalBtn.href = d.link;
-    modal.classList.add("open");
-  });
-});
-modal.addEventListener("click", (e) => {
-  const close = e.target?.getAttribute?.("data-close");
-  if (close) modal.classList.remove("open");
-});
 
 /* ---------- Three.js: Cinematic Tunnel ---------- */
 const canvas = document.getElementById("webgl");
@@ -90,7 +52,7 @@ const tunnel = new THREE.Mesh(tunnelGeo, tunnelMat);
 tunnel.rotation.x = Math.PI / 2;
 scene.add(tunnel);
 
-// “Rings” for depth
+// Rings for depth
 const rings = new THREE.Group();
 scene.add(rings);
 const ringGeo = new THREE.TorusGeometry(4.0, 0.05, 10, 120);
@@ -101,6 +63,7 @@ const ringMat = new THREE.MeshStandardMaterial({
   emissive: 0x00dcff,
   emissiveIntensity: 0.6
 });
+
 for (let i = 0; i < 26; i++) {
   const r = new THREE.Mesh(ringGeo, ringMat);
   r.position.z = -i * 9.5;
@@ -151,21 +114,17 @@ const clock = new THREE.Clock();
 function animate() {
   const t = clock.getElapsedTime();
 
-  // smooth scroll
   currentZ += (targetZ - currentZ) * 0.06;
   camera.position.z = currentZ;
 
-  // parallax
   camera.position.x += (mx * 0.9 - camera.position.x) * 0.03;
   camera.position.y += (-my * 0.45 - camera.position.y) * 0.03;
   camera.lookAt(0, 0, -12);
 
-  // motion
   tunnel.rotation.z = t * 0.06;
   rings.rotation.z = -t * 0.08;
   particles.rotation.z = t * 0.05;
 
-  // light “breathing”
   key.intensity = 1.55 + Math.sin(t * 1.2) * 0.25;
   cyan.intensity = 1.1 + Math.cos(t * 1.1) * 0.18;
 
@@ -174,7 +133,6 @@ function animate() {
 }
 animate();
 
-// Resize
 window.addEventListener("resize", () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
