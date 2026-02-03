@@ -446,3 +446,15 @@ body{
   0%,100%{width: 62%}
   50%{width: 86%}
 }
+
+.card{
+  display:block;              /* πολύ σημαντικό για <a> */
+  text-decoration:none;       /* να μη φαίνεται link */
+  color: inherit;             /* να κρατήσει το text color */
+  cursor: pointer;
+}
+
+.card:focus-visible{
+  outline: 2px solid rgba(0,220,255,.55);
+  outline-offset: 4px;
+}
