@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Γιώργος — Creative Developer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <!-- 3D Background -->
+    <canvas id="webgl"></canvas>
+    <div class="bg-vignette"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Top bar -->
+    <header class="top">
+      <div class="logo">
+        <span class="logoDot"></span>
+        <span>GEORGE</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+
+      <button id="menuBtn" class="menuBtn" aria-label="Menu">☰</button>
+    </header>
+
+    <!-- Mobile nav -->
+    <div id="mobileNav" class="mobileNav">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <main class="wrap">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="heroLeft reveal">
+          <div class="badge">
+            <span class="badgeDot"></span>
+            <span>3D • Motion • Web Experiences</span>
+          </div>
+
+          <h1 class="h1">
+            Φτιάχνω sites που
+            <span class="grad">νιώθονται</span>,
+            όχι απλά “φαίνονται”.
+          </h1>
+
+          <p class="p">
+            Είμαι ο Γιώργος — creative developer. Χτίζω interactive landings, 3D showcases και
+            web εμπειρίες με έμφαση σε motion, performance και clean αισθητική.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#work">Δες Projects</a>
+            <a class="btn ghost" href="#contact">Πάμε για συνεργασία</a>
+          </div>
+
+          <div class="mini">
+            <div class="miniItem">
+              <div class="k">Focus</div>
+              <div class="v">3D + Scroll</div>
+            </div>
+            <div class="miniItem">
+              <div class="k">Style</div>
+              <div class="v">Premium</div>
+            </div>
+            <div class="miniItem">
+              <div class="k">Goal</div>
+              <div class="v">Conversion</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroRight reveal">
+          <div class="glass big">
+            <div class="glassTop">
+              <span class="chip">Now Playing</span>
+              <span class="pulse"></span>
+            </div>
+
+            <div class="meter">
+              <div class="meterFill"></div>
+            </div>
+
+            <div class="list">
+              <div class="line"><span>Scroll-driven camera</span><span>✓</span></div>
+              <div class="line"><span>3D background</span><span>✓</span></div>
+              <div class="line"><span>Reveal animations</span><span>✓</span></div>
+              <div class="line"><span>Project modal</span><span>✓</span></div>
+            </div>
+
+            <div class="tags">
+              <span class="tag">Three.js</span>
+              <span class="tag">UI</span>
+              <span class="tag">Motion</span>
+              <span class="tag">Clean</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section id="work" class="section">
+        <div class="sectionHead reveal">
+          <h2>Work</h2>
+          <p>Μερικά projects/experiments. Πάτα πάνω σε ένα card για details.</p>
+        </div>
+
+        <div class="grid reveal">
+          <button class="card" data-modal="tunnel">
+            <div class="cardTitle">3D Tunnel Landing</div>
+            <div class="cardDesc">Scroll → travel. Cinematic fog + particles.</div>
+            <div class="cardMeta"><span>WebGL</span><span>3D</span><span>Scroll</span></div>
+          </button>
+
+          <button class="card" data-modal="saas">
+            <div class="cardTitle">Premium SaaS Landing</div>
+            <div class="cardDesc">Glass UI + motion + conversion layout.</div>
+            <div class="cardMeta"><span>UI</span><span>Brand</span><span>CTA</span></div>
+          </button>
+
+          <button class="card" data-modal="showcase">
+            <div class="cardTitle">Ring Portal</div>
+            <div class="cardDesc">Product-style lighting, smooth presentation.</div>
+            <div class="cardMeta"><span>Lighting</span><span>Motion</span><span>Details</span></div>
+          </button>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section">
+        <div class="sectionHead reveal">
+          <h2>Skills</h2>
+          <p>Τα πράγματα που χρησιμοποιώ για να βγαίνει “ταινία”, αλλά να τρέχει σωστά.</p>
+        </div>
+
+        <div class="skills reveal">
+          <div class="glass">
+            <h3>3D / Motion</h3>
+            <ul>
+              <li>Three.js fundamentals</li>
+              <li>Scroll-driven animations</li>
+              <li>Particles / fog / lighting</li>
+            </ul>
+          </div>
+          <div class="glass">
+            <h3>Front-end</h3>
+            <ul>
+              <li>Clean UI systems</li>
+              <li>Responsive layouts</li>
+              <li>Performance mindset</li>
+            </ul>
+          </div>
+          <div class="glass">
+            <h3>Product</h3>
+            <ul>
+              <li>Conversion-first structure</li>
+              <li>Copy hierarchy</li>
+              <li>Fast iteration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="sectionHead reveal">
+          <h2>About</h2>
+          <p>
+            Φτιάχνω interactive web experiences και landings που “κρατάνε” τον χρήστη.
+            Στόχος: premium αισθητική + καθαρή δομή + smooth motion.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="ctaGlass reveal">
+          <h2>Let’s build something insane.</h2>
+          <p>Στείλε μου μήνυμα και πάμε να το στήσουμε.</p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="mailto:giorgosigo@gmail.com">Email me</a>
+            <a class="btn ghost" href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> George</span>
+        <span class="muted">Built with Three.js + Vanilla</span>
+      </footer>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modalBackdrop" data-close="1"></div>
+      <div class="modalCard">
+        <button class="modalX" data-close="1" aria-label="Close">✕</button>
+        <div class="modalTitle" id="modalTitle">Title</div>
+        <div class="modalBody" id="modalBody">Body</div>
+        <div class="modalActions">
+          <a class="btn primary" id="modalBtn" href="#" target="_blank" rel="noreferrer">Open</a>
+          <button class="btn ghost" data-close="1">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
