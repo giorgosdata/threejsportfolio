@@ -458,3 +458,23 @@ body{
   outline: 2px solid rgba(0,220,255,.55);
   outline-offset: 4px;
 }
+
+.workActions{
+  margin-top: 14px;
+  display:flex;
+  gap:10px;
+}
+
+.pillMini{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(12px);
+  font-weight:900;
+  font-size:12px;
+  color: rgba(240,244,255,.9);
+}
