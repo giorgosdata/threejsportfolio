@@ -326,8 +326,12 @@ body{
   .grid{grid-template-columns:1fr}
 }
 
+/* CARD (single clean version) */
 .card{
+  display:block;
   text-align:left;
+  text-decoration:none;
+  color: inherit;
   border:1px solid rgba(255,255,255,.14);
   background: rgba(10,12,20,.45);
   border-radius: 22px;
@@ -335,8 +339,14 @@ body{
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
   transition: transform .18s ease, border-color .18s ease;
+  cursor: pointer;
 }
 .card:hover{transform: translateY(-4px); border-color: rgba(255,255,255,.25)}
+.card:focus-visible{
+  outline: 2px solid rgba(0,220,255,.55);
+  outline-offset: 4px;
+}
+
 .cardTitle{font-weight:980; font-size:18px}
 .cardDesc{color: var(--muted); margin-top:8px; line-height:1.55}
 .cardMeta{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; color: rgba(240,244,255,.78)}
@@ -347,6 +357,26 @@ body{
   border-radius:999px;
   font-weight:900;
   font-size:12px;
+}
+
+/* Work badge */
+.workActions{
+  margin-top: 14px;
+  display:flex;
+  gap:10px;
+}
+.pillMini{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(12px);
+  font-weight:900;
+  font-size:12px;
+  color: rgba(240,244,255,.9);
 }
 
 .skills{
@@ -372,7 +402,6 @@ body{
 }
 .ctaGlass h2{margin:0 0 8px}
 .ctaGlass p{margin:0 auto 16px; color: var(--muted); max-width: 70ch; line-height:1.55}
-.small{margin-top:12px; color: rgba(240,244,255,.55); font-weight:800; font-size:12px}
 
 .footer{
   margin-top: 70px;
@@ -397,46 +426,6 @@ body{
   transform: translateY(0);
 }
 
-/* Modal */
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:20;
-  display:none;
-}
-.modal.open{display:block}
-.modalBackdrop{
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,.55);
-}
-.modalCard{
-  position:relative;
-  width:min(720px, calc(100% - 34px));
-  margin: 10vh auto;
-  border:1px solid rgba(255,255,255,.16);
-  background: rgba(10,12,20,.82);
-  backdrop-filter: blur(16px);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 18px;
-}
-.modalX{
-  position:absolute;
-  top:10px;
-  right:10px;
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(240,244,255,.9);
-  cursor:pointer;
-}
-.modalTitle{font-weight:980; font-size:18px; margin-top:6px}
-.modalBody{margin-top:10px; color: var(--muted); line-height:1.6}
-.modalActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-
 /* Animations */
 @keyframes pulse{
   0%,100%{transform: scale(1); opacity:.8}
@@ -445,36 +434,4 @@ body{
 @keyframes fill{
   0%,100%{width: 62%}
   50%{width: 86%}
-}
-
-.card{
-  display:block;              /* πολύ σημαντικό για <a> */
-  text-decoration:none;       /* να μη φαίνεται link */
-  color: inherit;             /* να κρατήσει το text color */
-  cursor: pointer;
-}
-
-.card:focus-visible{
-  outline: 2px solid rgba(0,220,255,.55);
-  outline-offset: 4px;
-}
-
-.workActions{
-  margin-top: 14px;
-  display:flex;
-  gap:10px;
-}
-
-.pillMini{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.06);
-  backdrop-filter: blur(12px);
-  font-weight:900;
-  font-size:12px;
-  color: rgba(240,244,255,.9);
 }
